@@ -1,7 +1,7 @@
 <?php 
 $postdata = http_build_query(
     array(
-        'string' => "iptv+latino"
+        'string' => $_GET['link']
     )
 );
 
@@ -14,9 +14,7 @@ $opts = array('http' =>
 );
 
 $context  = stream_context_create($opts);
-if ($_GET['data'] == "true") {
-    $result = file_get_contents('https://psbdmp.ws//', false, $context);
-}else{
-	echo "<h2>NO</h2>"
-}
+
+$result = file_get_contents('https://psbdmp.ws//', false, $context);
+echo $result;
 ?>
