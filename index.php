@@ -1,7 +1,7 @@
 <?php 
 $postdata = http_build_query(
     array(
-        'string' => $_GET['link']
+        'string' => "iptv+argentina"
     )
 );
 
