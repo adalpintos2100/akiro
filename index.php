@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
-<body>
+<?php 
+$postdata = http_build_query(
+    array(
+        'string' => 'iptv+latino'
+    )
+);
 
-<?php
-echo "<h2>PHP is Fun!</h2>";
-echo "Hello world!<br>";
-echo "I'm about to learn PHP!<br>";
-echo "This ", "string ", "was ", "made ", "with multiple parameters.";
-?> 
+$opts = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => 'Content-type: application/x-www-form-urlencoded',
+        'content' => $postdata
+    )
+);
 
-</body>
-</html>
+$context  = stream_context_create($opts);
+
+$result = file_get_contents('https://psbdmp.ws//', false, $context);
+echo $result;
+?>
