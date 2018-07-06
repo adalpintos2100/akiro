@@ -17,6 +17,6 @@ $result = file_get_contents('https://psbdmp.ws//', false, $context);
 
 echo $result;
 }else{
-echo "NO";
+echo "<html><head></head><body><a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a></body></html>";
 }
 ?>
