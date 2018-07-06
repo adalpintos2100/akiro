@@ -1,5 +1,5 @@
 <?php 
-if ($_GET['data'] < 0){
+if ($_GET['data'] === false){
 $postdata = http_build_query(
     array(
         'string' => $_GET['data']
