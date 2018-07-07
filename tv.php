@@ -60,17 +60,11 @@ $callback= isset($_GET['callback']);
    $nn = preg_match('/\<data\>(.*)\<\/data\>/', $qq, $title);
    if($title[1] == "true"){
    $html =
-  '<!DOCTYPE html>
-   <html>
-   <head>
-   </head>
-   <body>
-    <tr>
-     <data>true</data>
-     <media>'.$media.'</media>
+  '<tr>
+	 <td>true</td>
+     <td>'.$media.'</td>
     </tr>
-   </body>
-   </html>';
+	';
    echo $html;
    }else{
     $xmlstr =
