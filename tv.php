@@ -59,14 +59,18 @@ $callback= isset($_GET['callback']);
    $qq = file_get_contents('https://iptv-paste.herokuapp.com/check.php?url='.$media);
    $nn = preg_match('/\<data\>(.*)\<\/data\>/', $qq, $title);
    if($title[1] == "true"){
-   $xmlstr =
-  '<?xml version="1.0" encoding="UTF-8"?>
-   <keys>
-    <data>true</data>
-    <media>'.$media.'</media>
-   </keys>';
-   $sxe = new SimpleXMLElement($xmlstr);
-   echo $sxe->asXML();
+   $html =
+  '<!DOCTYPE html>
+   <html>
+   <head>
+   </head>
+   <body>
+    <tr>
+     <h2>'.$media.'</h2>
+    </tr>
+   </body>
+   </html>';
+   echo $html;
    }else{
     $xmlstr =
   '<?xml version="1.0" encoding="UTF-8"?>
