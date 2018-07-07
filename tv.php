@@ -60,29 +60,24 @@ $callback= isset($_GET['callback']);
    $nn = preg_match('/\<data\>(.*)\<\/data\>/', $qq, $title);
    if($title[1] == "true"){
    $html =
-  '<tr>
-	 <td>true</td>
-     <td>'.$media.'</td>
-    </tr>
-	';
+'<tr>
+ <td>true</td>
+ <td>'.$media.'</td>
+</tr>';
    echo $html;
    }else{
-    $xmlstr =
-  '<?xml version="1.0" encoding="UTF-8"?>
-   <keys>
-    <data>false</data>
-   </keys>';
-   $sxe = new SimpleXMLElement($xmlstr);
-   echo $sxe->asXML();
+   $html =
+'<tr>
+ <td>false</td>
+</tr>';
+   echo $html;
    }
    }else{
-    $xmlstr =
-  '<?xml version="1.0" encoding="UTF-8"?>
-   <keys>
-    <data>false</data>
-   </keys>';
-   $sxe = new SimpleXMLElement($xmlstr);
-   echo $sxe->asXML();
+$html =
+'<tr>
+ <td>false</td>
+</tr>';
+   echo $html;
    }
 } else {
 echo '<html><head><title>CAT</title></head><body><a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a></body></html>';
