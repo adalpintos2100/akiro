@@ -55,6 +55,7 @@ $callback= isset($_GET['callback']);
    }
    $key = preg_grep('/'.$tv.'$/iu', array_column($items, 'tvtitle'));
    if (!empty($key)){
+   echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
    $media = $items[array_keys($key)[0]]['tvmedia'];
    $qq = file_get_contents('https://iptv-paste.herokuapp.com/check.php?url='.$media);
    $nn = preg_match('/\<data\>(.*)\<\/data\>/', $qq, $title);
