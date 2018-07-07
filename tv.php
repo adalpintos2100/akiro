@@ -55,17 +55,35 @@ $callback= isset($_GET['callback']);
    }
    $key = preg_grep('/'.$tv.'$/iu', array_column($items, 'tvtitle'));
    if (!empty($key)){
-   echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
    $media = $items[array_keys($key)[0]]['tvmedia'];
    $qq = file_get_contents('https://iptv-paste.herokuapp.com/check.php?url='.$media);
    $nn = preg_match('/\<data\>(.*)\<\/data\>/', $qq, $title);
    if($title[1] == "true"){
-   echo '<data>true</data><media>'.$media.'</media>';
+   $xmlstr =
+  '<?xml version="1.0" encoding="UTF-8"?>
+   <keys>
+    <data>true</data>
+    <media>'.$media.'</media>
+   </keys>';
+   $sxe = new SimpleXMLElement($xmlstr);
+   echo $sxe->asXML();
    }else{
-   echo '<data>false</data>';
+    $xmlstr =
+  '<?xml version="1.0" encoding="UTF-8"?>
+   <keys>
+    <data>false</data>
+   </keys>';
+   $sxe = new SimpleXMLElement($xmlstr);
+   echo $sxe->asXML();
    }
    }else{
-    echo '<data>false</data>';
+    $xmlstr =
+  '<?xml version="1.0" encoding="UTF-8"?>
+   <keys>
+    <data>false</data>
+   </keys>';
+   $sxe = new SimpleXMLElement($xmlstr);
+   echo $sxe->asXML();
    }
 } else {
 echo '<html><head><title>CAT</title></head><body><a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a></body></html>';
