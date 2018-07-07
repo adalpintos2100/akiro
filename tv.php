@@ -66,7 +66,8 @@ $callback= isset($_GET['callback']);
    </head>
    <body>
     <tr>
-     <h2>'.$media.'</h2>
+     <data>true</data>
+     <media>'.$media.'</media>
     </tr>
    </body>
    </html>';
